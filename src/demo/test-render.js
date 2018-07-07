@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 export default function () {
   const ele = (
-    <div>
+    <div key={new Date()}>
       <h1>hello world</h1>
       <h2>It is {new Date().toLocaleTimeString()}.</h2>
     </div>
