@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Link
 } from 'react-router-dom'
@@ -19,16 +19,22 @@ class VVV extends React.Component{
 }
 
 class TestRouter extends React.Component{
+  constructor (props) {
+    super()
+    this.state = {
+      supportsHistory: 'pushState' in window.history
+    }
+  }
   render () {
     return (
-      <Router basename="/user">
+      <BrowserRouter forceRefresh={!this.state.supportsHistory} basename="/user">
         <div>
-          111
+          <Link to="/react" />
           <Route path="/hi" component={() => (<h1>this is hi</h1>)} />
           <Route path="/a" component={() => (<h1>this is a</h1>)} />
           <Route path="/vvvv" component={VVV} />
         </div>
-      </Router>
+      </BrowserRouter>
     )
   }
 }

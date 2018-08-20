@@ -5,6 +5,7 @@ import { render } from 'react-dom'
 // import todoApp from './redux/reducers'
 // import App from './redux/components/App'
 import TestRouter from './config/router'
+import App from './demo/route'
 
 // let store = createStore(todoApp)
 // render(
@@ -15,5 +16,9 @@ import TestRouter from './config/router'
 // )
 render (
   <TestRouter />,
+  document.getElementById('root')
+)
+render (
+  <App />,
   document.getElementById('root')
 )
