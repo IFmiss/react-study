@@ -2,10 +2,18 @@ import React from 'react'
 import {
   BrowserRouter,
   Route,
-  Link
+  Link,
+  NavLink,
+  Redirect
 } from 'react-router-dom'
 
 class App extends React.Component{
+  constructor (props) {
+    super()
+    this.state = {
+      isLogin: false
+    }
+  }
   render () {
     return (
       <BrowserRouter basename="/dw">
@@ -13,6 +21,7 @@ class App extends React.Component{
           <Link to="/">home</Link>
           <Link to="/about/12?id=1111&name=daiwei">about</Link>
           <Link to="/concat">concat</Link>
+          <NavLink to="/concat" activeClassName="hello">Concat</NavLink>
           <Link to="/other/react/route">other</Link>
           <Link to="/another/2017-04-02.html">another</Link>
           <Link to="/query/user?id=123&name=minooo">query1</Link>
@@ -51,6 +60,9 @@ class App extends React.Component{
                 <p>id: {new URLSearchParams(location.search).get('id')}</p>
                 <p>name: {new URLSearchParams(location.search).get('name')}</p>
               </div>
+            )}/>
+            <Route exact path="/" render={() => (
+              !this.state.isLogin ? (<Redirect to="/concat"/>) : (<Redirect to="/about"/>)
             )}/>
             </div>
         </div>
