@@ -14,6 +14,14 @@ class App extends React.Component{
       isLogin: false
     }
   }
+
+  componentWillMount () {
+    console.log('componentWillMount')
+  }
+  componentDidMount () {
+    console.log('componentDidMount')
+  }
+
   render () {
     return (
       <BrowserRouter basename="/dw">

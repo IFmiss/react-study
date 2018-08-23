@@ -29,7 +29,7 @@ export class Tick extends React.Component{
 
   render() {
     return(
-      <div key="1" onClick={this.activateLasers(this)}>
+      <div key="1" onClick={this.activateLasers.bind(this)}>
         <h2>its {this.state.date.toLocaleTimeString()}</h2>
       </div>
     )

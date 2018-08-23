@@ -6,7 +6,9 @@ import { render } from 'react-dom'
 // import App from './redux/components/App'
 import TestRouter from './config/router'
 import App from './demo/route'
+import FileInput from './demo/file'
 
+import { clock } from './demo/test-clock'
 // let store = createStore(todoApp)
 // render(
 //   <Provider store={store}>
@@ -14,11 +16,14 @@ import App from './demo/route'
 //   </Provider>,
 //   document.getElementById('root')
 // )
+
 render (
   <TestRouter />,
   document.getElementById('root')
 )
 render (
-  <App />,
+  <FileInput/>,
   document.getElementById('root')
 )
+
+// clock()
