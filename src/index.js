@@ -7,6 +7,7 @@ import { render } from 'react-dom'
 import TestRouter from './config/router'
 import App from './demo/route'
 import FileInput from './demo/file'
+import PreF from './demo/performance'
 
 import { clock } from './demo/test-clock'
 // let store = createStore(todoApp)
@@ -23,6 +24,11 @@ render (
 )
 render (
   <FileInput/>,
+  document.getElementById('root')
+)
+
+render (
+  <PreF/>,
   document.getElementById('root')
 )
 
