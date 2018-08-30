@@ -9,6 +9,8 @@ import App from './demo/route'
 import FileInput from './demo/file'
 import PreF from './demo/performance'
 
+import Parent from './demo/portals'
+
 import { clock } from './demo/test-clock'
 // let store = createStore(todoApp)
 // render(
@@ -31,5 +33,4 @@ render (
   <PreF/>,
   document.getElementById('root')
 )
-
 // clock()
