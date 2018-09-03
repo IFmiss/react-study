@@ -8,6 +8,7 @@ import TestRouter from './config/router'
 import App from './demo/route'
 import FileInput from './demo/file'
 import PreF from './demo/performance'
+import Todo from './todolist/todo'
 
 import Parent from './demo/portals'
 
@@ -20,17 +21,17 @@ import { clock } from './demo/test-clock'
 //   document.getElementById('root')
 // )
 
-render (
-  <TestRouter />,
-  document.getElementById('root')
-)
-render (
-  <FileInput/>,
-  document.getElementById('root')
-)
+// render (
+//   <TestRouter />,
+//   document.getElementById('root')
+// )
+// render (
+//   <FileInput/>,
+//   document.getElementById('root')
+// )
 
 render (
-  <PreF/>,
+  <Todo/>,
   document.getElementById('root')
 )
 // clock()
