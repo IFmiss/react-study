@@ -21,6 +21,9 @@ class ClickCount extends React.Component{
       </div>
     )
   }
+  componentDidMount () {
+    console.log(this.props)
+  }
 }
 
 export default ClickCount

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Prompt} from 'react-router-dom'
 class MyRedirect extends React.Component{
   constructor (props) {
     super(props)
@@ -23,11 +23,12 @@ class MyRedirect extends React.Component{
     let RedirectHtml
     if (this.state.showRedirect) {
       RedirectHtml = (
-        <Redirect to="/"/>
+        <Redirect to="https://www.daiwei.org"/>
       )
     }
     return(
       <div>
+        <Prompt message="确定要离开？" />
         {RedirectHtml}
         <h1>
           预计将在{this.state.time}s之后跳转
