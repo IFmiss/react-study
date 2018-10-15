@@ -25,9 +25,5 @@ class Todo extends React.Component{
     )
   }
 }
-render (
-  <Todo/>,
-  document.getElementById('root')
-)
 
 export default Todo
