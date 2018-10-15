@@ -1,6 +1,7 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, NavLink, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, NavLink, Link, Prompt} from 'react-router-dom'
 import Todo from './../todolist/todo'
+import ClickCount from './../clickcount/index'
 class MyRoute extends React.Component{
   render () {
     return(
@@ -15,14 +16,15 @@ class MyRoute extends React.Component{
                 <NavLink to="/">首页</NavLink>
               </li>
               <li>
-                <NavLink to="/">个人中心</NavLink>
+                {/* <Redirect to="/somewhere/else" /> */}
               </li>
               <li>
-                <Link to="/todo">Link组件</Link>
+                <Link to="/click">click</Link>
               </li>
             </ul>
             <div>
-              <Route path="/todo" component={Todo}/>
+              <Route path="/todo" component={Todo}></Route>
+              <Route path="/click" component={ClickCount}></Route>
             </div>
           </div>
         </Router>
