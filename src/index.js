@@ -25,15 +25,33 @@
 //   document.getElementById('root')
 // )
 
+// =================redux-study
+// import React from 'react'
+// import { render } from 'react-dom'
+// import { Provider } from 'react-redux'
+// import { createStore } from 'redux'
+// import todoApp from './redux-study/reduces/reduces'
+// import App from './redux-study/components/App'
+
+// let store = createStore(todoApp)
+// render (
+//   <Provider store={store}>
+//     <App/>
+//   </Provider>,
+//   document.getElementById('root')
+// )
+
+// =================redux-text
 import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import todoApp from './redux-study/reduces/reduces'
-import App from './redux-study/components/App'
+import {render} from 'react-dom'
+import {Provider} from 'react-redux'
+import {createStore} from 'redux'
+import todoApp from './redux-test/reducer'
+import App from './redux-test/App'
 
 let store = createStore(todoApp)
-render (
+
+render(
   <Provider store={store}>
     <App/>
   </Provider>,
