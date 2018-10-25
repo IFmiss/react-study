@@ -6,6 +6,8 @@ import MyRedirect from './../redirect/index'
 import PropTypes from 'prop-types'
 import TestLifereCycle from './../liferecycle'
 import {MyCreateRef, RefChild} from './../liferecycle/createRef'
+import { findDOMNode } from 'react-dom'
+import TestDom from './../liferecycle/dom'
 class MyRoute extends React.Component{
   constructor (props) {
     super(props)
@@ -21,6 +23,7 @@ class MyRoute extends React.Component{
   componentDidMount () {
     console.log('MyRoute mounted: ')
     console.log(this.myRef.current)
+    console.log('findDOMNode(this.myRef.current)', findDOMNode(this.myRef.current))
   }
   /**
    * getChildContext 指定的传递给子组件的属性需要先通过 childContextTypes 来指定，不然会产生错误。
@@ -65,6 +68,9 @@ class MyRoute extends React.Component{
               <li>
                 <Link to="/ref">createRef</Link>
               </li>
+              <li>
+                <Link to="/dom">dom</Link>
+              </li>
             </ul>
             <div>
               <Route path="/todo" component={Todo}></Route>
@@ -80,6 +86,8 @@ class MyRoute extends React.Component{
                   </RefChild>
                 </div>
               )}/>
+
+              <Route path='/dom' children={() => <TestDom />}/>
             </div>
           </div>
         </Router>
