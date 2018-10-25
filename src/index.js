@@ -1,5 +1,5 @@
-// import React from 'react'
-// import { render } from 'react-dom'
+import React from 'react'
+import { render } from 'react-dom'
 
 
 // import {Provider} from 'react-redux'
@@ -10,11 +10,11 @@
 // // import { createStore } from 'redux'
 // // import todoApp from './redux/reducers'
 // // import App from './redux/components/App'
-// import MyRoute from './router/index'
-// render(
-//   <MyRoute/>,
-//   document.getElementById('root')
-// )
+import MyRoute from './router/index'
+render(
+  <MyRoute/>,
+  document.getElementById('root')
+)
 
 // let store = createStore(Counter)
 
@@ -42,18 +42,18 @@
 // )
 
 // =================redux-text
-import React from 'react'
-import {render} from 'react-dom'
-import {Provider} from 'react-redux'
-import {createStore} from 'redux'
-import todoApp from './redux-test/reducer'
-import App from './redux-test/App'
+// import React from 'react'
+// import {render} from 'react-dom'
+// import {Provider} from 'react-redux'
+// import {createStore} from 'redux'
+// import todoApp from './redux-test/reducer'
+// import App from './redux-test/App'
 
-let store = createStore(todoApp)
+// let store = createStore(todoApp)
 
-render(
-  <Provider store={store}>
-    <App/>
-  </Provider>,
-  document.getElementById('root')
-)
+// render(
+//   <Provider store={store}>
+//     <App/>
+//   </Provider>,
+//   document.getElementById('root')
+// )

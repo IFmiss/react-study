@@ -4,6 +4,7 @@ import Todo from './../todolist/todo'
 import ClickCount from './../clickcount/index'
 import MyRedirect from './../redirect/index'
 import PropTypes from 'prop-types'
+import TestLifereCycle from './../liferecycle'
 class MyRoute extends React.Component{
   /**
    * 基本使用方法，声明contextTypes，在函数或者render中通过this.context调用
@@ -49,11 +50,15 @@ class MyRoute extends React.Component{
                   }
                 }>click</Link>
               </li>
+              <li>
+                <Link to="/life">life</Link>
+              </li>
             </ul>
             <div>
               <Route path="/todo" component={Todo}></Route>
               <Route path="/click" component={ClickCount}></Route>
               <Route path="/redirect" component={MyRedirect}></Route>
+              <Route path="/life" component={TestLifereCycle}/>
             </div>
           </div>
         </Router>
