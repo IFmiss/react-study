@@ -5,13 +5,22 @@ import ClickCount from './../clickcount/index'
 import MyRedirect from './../redirect/index'
 import PropTypes from 'prop-types'
 import TestLifereCycle from './../liferecycle'
+import {MyCreateRef, RefChild} from './../liferecycle/createRef'
 class MyRoute extends React.Component{
+  constructor (props) {
+    super(props)
+    this.myRef = React.createRef()
+  }
   /**
    * 基本使用方法，声明contextTypes，在函数或者render中通过this.context调用
    */
   static childContextTypes = {
     name: PropTypes.string.isRequired,
     age: PropTypes.string.isRequired
+  }
+  componentDidMount () {
+    console.log('MyRoute mounted: ')
+    console.log(this.myRef.current)
   }
   /**
    * getChildContext 指定的传递给子组件的属性需要先通过 childContextTypes 来指定，不然会产生错误。
@@ -53,12 +62,24 @@ class MyRoute extends React.Component{
               <li>
                 <Link to="/life">life</Link>
               </li>
+              <li>
+                <Link to="/ref">createRef</Link>
+              </li>
             </ul>
             <div>
               <Route path="/todo" component={Todo}></Route>
               <Route path="/click" component={ClickCount}></Route>
               <Route path="/redirect" component={MyRedirect}></Route>
-              <Route path="/life" component={TestLifereCycle}/>
+              <Route path="/life" render={() => <TestLifereCycle/>}/>
+              {/* <Route path="/ref" component={MyCreateRef}/> */}
+              <Route path="/ref" render={() => (
+                <div>
+                  <MyCreateRef />
+                  <RefChild ref={this.myRef}>
+                    点击我
+                  </RefChild>
+                </div>
+              )}/>
             </div>
           </div>
         </Router>

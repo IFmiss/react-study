@@ -1,4 +1,5 @@
 import React from 'react'
+import TestJsx from './test'
 class TestLifereCycle extends React.Component{
   constructor(props) {
     super(props)
@@ -21,6 +22,7 @@ class TestLifereCycle extends React.Component{
   }
   componentWillMount() {
     console.log('componentWillMount')
+    console.log(this.props)
   }
   shouldComponentUpdate (nextProps, nextState) {
     console.log('shouldComponentUpdate', `nextProps: ${nextProps}`, `prevState: ${nextState}`)
@@ -42,6 +44,11 @@ class TestLifereCycle extends React.Component{
   }
 
   render(){
+    let tpl = (
+      <React.Fragment>
+        <TestJsx/>
+      </React.Fragment>
+    )
     return (
       <div>
         <p style={{color: this.props.color}}>
@@ -50,6 +57,7 @@ class TestLifereCycle extends React.Component{
         <p>
           我{this.state.age}岁了
         </p>
+        {tpl}
         <button onClick={this.clickHandler}>点击我</button>
       </div>
     )
