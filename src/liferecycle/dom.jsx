@@ -23,10 +23,10 @@ class TestDom extends React.Component {
           __html: 'hello react'
         }}></p>
         <span htmlFor="daiwei"></span>
-        <from onChange={this.fromChange}>
+        <form onChange={this.fromChange}>
           <input type="text" placeholder="text1"/>
           <input type="text" placeholder="text2"/>
-        </from>
+        </form>
         <button onClick={this.clickButton}>点击</button>
       </div>
     )

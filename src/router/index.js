@@ -11,6 +11,7 @@ import TestDom from './../liferecycle/dom'
 import RenderForm from './../render'
 import CalcBoiling from './../stateup'
 import {signUpDialog, WelcomeDialog} from './../extends'
+import {Refs} from './../refs'
 class MyRoute extends React.Component{
   constructor (props) {
     super(props)
@@ -86,6 +87,9 @@ class MyRoute extends React.Component{
               <li>
                 <Link to="/extends1">extends1</Link>
               </li>
+              <li>
+                <Link to="/refs">ref</Link>
+              </li>
             </ul>
             <div>
               <Route path="/todo" component={Todo}></Route>
@@ -107,6 +111,7 @@ class MyRoute extends React.Component{
               <Route path='/stateup' component={CalcBoiling}/>
               <Route path='/extends' component={WelcomeDialog}/>
               <Route path='/extends1' component={signUpDialog}/>
+              <Route path='/refs' component={Refs}/>
             </div>
           </div>
         </Router>
