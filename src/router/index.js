@@ -10,6 +10,7 @@ import { findDOMNode } from 'react-dom'
 import TestDom from './../liferecycle/dom'
 import RenderForm from './../render'
 import CalcBoiling from './../stateup'
+import {signUpDialog, WelcomeDialog} from './../extends'
 class MyRoute extends React.Component{
   constructor (props) {
     super(props)
@@ -79,6 +80,12 @@ class MyRoute extends React.Component{
               <li>
                 <Link to="/stateup">stateup</Link>
               </li>
+              <li>
+                <Link to="/extends">extends</Link>
+              </li>
+              <li>
+                <Link to="/extends1">extends1</Link>
+              </li>
             </ul>
             <div>
               <Route path="/todo" component={Todo}></Route>
@@ -98,6 +105,8 @@ class MyRoute extends React.Component{
               <Route path='/dom' children={() => <TestDom />}/>
               <Route path='/render' component={() => <RenderForm />}/>
               <Route path='/stateup' component={CalcBoiling}/>
+              <Route path='/extends' component={WelcomeDialog}/>
+              <Route path='/extends1' component={signUpDialog}/>
             </div>
           </div>
         </Router>
