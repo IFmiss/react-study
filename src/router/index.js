@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, NavLink, Link, Prompt} from 'react-router-dom'
+import {BrowserRouter as Router, Route, NavLink, Link} from 'react-router-dom'
 import Todo from './../todolist/todo'
 import ClickCount from './../clickcount/index'
 import MyRedirect from './../redirect/index'

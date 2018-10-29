@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
-
+import Im from 'immutable'
+import TestIm from './immutable'
 
 // import {Provider} from 'react-redux'
 // import {createStore} from 'redux'
@@ -11,10 +12,13 @@ import { render } from 'react-dom'
 // // import todoApp from './redux/reducers'
 // // import App from './redux/components/App'
 import MyRoute from './router/index'
+window.Im = Im
 render(
   <MyRoute/>,
   document.getElementById('root')
 )
+
+new TestIm().init()
 
 // let store = createStore(Counter)
 
