@@ -9,6 +9,7 @@ import {MyCreateRef, RefChild} from './../liferecycle/createRef'
 import { findDOMNode } from 'react-dom'
 import TestDom from './../liferecycle/dom'
 import RenderForm from './../render'
+import CalcBoiling from './../stateup'
 class MyRoute extends React.Component{
   constructor (props) {
     super(props)
@@ -75,6 +76,9 @@ class MyRoute extends React.Component{
               <li>
                 <Link to="/render">render</Link>
               </li>
+              <li>
+                <Link to="/stateup">stateup</Link>
+              </li>
             </ul>
             <div>
               <Route path="/todo" component={Todo}></Route>
@@ -93,6 +97,7 @@ class MyRoute extends React.Component{
 
               <Route path='/dom' children={() => <TestDom />}/>
               <Route path='/render' component={() => <RenderForm />}/>
+              <Route path='/stateup' component={CalcBoiling}/>
             </div>
           </div>
         </Router>
