@@ -12,6 +12,7 @@ import RenderForm from './../render'
 import CalcBoiling from './../stateup'
 import {signUpDialog, WelcomeDialog} from './../extends'
 import {Refs} from './../refs'
+import {NameForm, FileInput} from './../noctrl'
 class MyRoute extends React.Component{
   constructor (props) {
     super(props)
@@ -90,6 +91,9 @@ class MyRoute extends React.Component{
               <li>
                 <Link to="/refs">ref</Link>
               </li>
+              <li>
+                <Link to="/noctrl">非控制组件</Link>
+              </li>
             </ul>
             <div>
               <Route path="/todo" component={Todo}></Route>
@@ -112,6 +116,14 @@ class MyRoute extends React.Component{
               <Route path='/extends' component={WelcomeDialog}/>
               <Route path='/extends1' component={signUpDialog}/>
               <Route path='/refs' component={Refs}/>
+              <Route path='/noctrl' render={() => {
+                return(
+                  <div>
+                    <NameForm/>
+                    <FileInput/>
+                  </div>
+                )
+              }}/>
             </div>
           </div>
         </Router>
