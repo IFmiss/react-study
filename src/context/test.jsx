@@ -28,7 +28,7 @@ class Tips extends React.Component{
     return(
       <ThemeContext.Consumer>
         {
-          theme => (
+          (theme, toggleTheme) => (
             <div style={{
               ...this.state.style,
               background: theme.background

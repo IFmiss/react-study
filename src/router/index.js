@@ -16,6 +16,7 @@ import {NameForm, FileInput} from './../noctrl'
 import {CounterButton} from './../purecomp'
 import {TestContext} from './../context'
 import ContextTheme from './../context/test'
+import NewContext from './../context/test1'
 class MyRoute extends React.Component{
   constructor (props) {
     super(props)
@@ -103,6 +104,9 @@ class MyRoute extends React.Component{
               <li>
                 <Link to="/context">context</Link>
               </li>
+              <li>
+                <Link to="/ctx">context1</Link>
+              </li>
             </ul>
             <div>
               <Route path="/todo" component={Todo}></Route>
@@ -142,6 +146,7 @@ class MyRoute extends React.Component{
                   <TestContext/>
                 </div>
               )} />
+              <Route path='/ctx' render={() => (<NewContext />)}/>
             </div>
           </div>
         </Router>
