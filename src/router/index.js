@@ -13,6 +13,9 @@ import CalcBoiling from './../stateup'
 import {signUpDialog, WelcomeDialog} from './../extends'
 import {Refs} from './../refs'
 import {NameForm, FileInput} from './../noctrl'
+import {CounterButton} from './../purecomp'
+import {TestContext} from './../context'
+import ContextTheme from './../context/test'
 class MyRoute extends React.Component{
   constructor (props) {
     super(props)
@@ -94,6 +97,12 @@ class MyRoute extends React.Component{
               <li>
                 <Link to="/noctrl">非控制组件</Link>
               </li>
+              <li>
+                <Link to="/purecomp">purecomp</Link>
+              </li>
+              <li>
+                <Link to="/context">context</Link>
+              </li>
             </ul>
             <div>
               <Route path="/todo" component={Todo}></Route>
@@ -124,6 +133,15 @@ class MyRoute extends React.Component{
                   </div>
                 )
               }}/>
+              <Route path='/purecomp' render={() => (
+                <CounterButton color="#eee"/>
+              )} />
+              <Route path='/context' render={() => (
+                <div>
+                  <ContextTheme/>
+                  <TestContext/>
+                </div>
+              )} />
             </div>
           </div>
         </Router>
