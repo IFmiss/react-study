@@ -2,6 +2,7 @@ import React from 'react'
 import WithHeader from './test'
 import setHeader from './ele'
 import ExtendsCom from './extends'
+import RefsComp from './refs'
 // @withHeader
 class TG extends React.Component{
   render() {
@@ -36,9 +37,15 @@ class ETG extends React.Component{
       count: 1
     }
   }
+  componentDidMount() {
+    console.log('this.props.refs', this.props)
+  }
   render() {
+    const { getRef, ...props} = this.props
+    console.log('props', ...props)
+    console.log('this.props', this.props)
     return (
-      <div>
+      <div ref={getRef}>
         hello ETG
       </div>
     )
@@ -48,9 +55,11 @@ class ETG extends React.Component{
 // export default TestGaoJie
 const TestGaoJie = WithHeader (TG)
 const TestMineGaoJie = setHeader ('hello world')(MTG)
-const ExtendsComGaoJie = ExtendsCom ('daiwei')(ETG)
+// const ExtendsComGaoJie = ExtendsCom ('daiwei')(ETG)
+const TestRefsCompGaoJie = RefsComp (ETG)
 export {
   TestGaoJie,
   TestMineGaoJie,
-  ExtendsComGaoJie
+  // ExtendsComGaoJie,
+  TestRefsCompGaoJie
 }

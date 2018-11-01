@@ -19,7 +19,7 @@ import ContextTheme from './../context/test'
 import NewContext from './../context/test1'
 import Rorttals from './../portals'
 import ErrorBoundary from './../boundaries'
-import {TestGaoJie, TestMineGaoJie, ExtendsComGaoJie} from './../gaojie'
+import {TestGaoJie, TestMineGaoJie, ExtendsComGaoJie, TestRefsCompGaoJie} from './../gaojie'
 class MyRoute extends React.Component{
   constructor (props) {
     super(props)
@@ -164,7 +164,8 @@ class MyRoute extends React.Component{
                 <div>
                   <TestGaoJie/>,
                   <TestMineGaoJie/>,
-                  <ExtendsComGaoJie/>
+                  {/* <ExtendsComGaoJie/>, */}
+                  <TestRefsCompGaoJie/>
                 </div>
               )}/>
             </div>
