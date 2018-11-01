@@ -17,6 +17,9 @@ import {CounterButton} from './../purecomp'
 import {TestContext} from './../context'
 import ContextTheme from './../context/test'
 import NewContext from './../context/test1'
+import Rorttals from './../portals'
+import ErrorBoundary from './../boundaries'
+import {TestGaoJie, TestMineGaoJie, ExtendsComGaoJie} from './../gaojie'
 class MyRoute extends React.Component{
   constructor (props) {
     super(props)
@@ -107,6 +110,12 @@ class MyRoute extends React.Component{
               <li>
                 <Link to="/ctx">context1</Link>
               </li>
+              <li>
+                <Link to="/porttals">Rorttals</Link>
+              </li>
+              <li>
+                <Link to="/gaojie">高阶组件</Link>
+              </li>
             </ul>
             <div>
               <Route path="/todo" component={Todo}></Route>
@@ -146,7 +155,18 @@ class MyRoute extends React.Component{
                   <TestContext/>
                 </div>
               )} />
-              <Route path='/ctx' render={() => (<NewContext />)}/>
+              <Route path='/ctx' render={() => (
+                <ErrorBoundary>
+                  <NewContext />
+                </ErrorBoundary>)}/>
+              <Route path='/porttals' component={Rorttals}/>
+              <Route path='/gaojie' render={() => (
+                <div>
+                  <TestGaoJie/>,
+                  <TestMineGaoJie/>,
+                  <ExtendsComGaoJie/>
+                </div>
+              )}/>
             </div>
           </div>
         </Router>
