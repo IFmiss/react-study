@@ -6,9 +6,8 @@ export default (WrappedComp) => class RefsHOC extends React.Component{
   }
   render() {
     const props = Object.assign({}, this.props, {
-      getRef: (ref) => this.headerDemo = ref,
       name: '戴伟'
     })
-    return <WrappedComp {...props}/>
+    return <WrappedComp {...props} getRef = {(ref) => this.headerDemo = ref}/>
   }
 }

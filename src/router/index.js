@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, NavLink, Link} from 'react-router-dom'
+import {HashRouter as Router, Route, NavLink, Link} from 'react-router-dom'
 import Todo from './../todolist/todo'
 import ClickCount from './../clickcount/index'
 import MyRedirect from './../redirect/index'
@@ -19,7 +19,9 @@ import ContextTheme from './../context/test'
 import NewContext from './../context/test1'
 import Rorttals from './../portals'
 import ErrorBoundary from './../boundaries'
-import {TestGaoJie, TestMineGaoJie, ExtendsComGaoJie, TestRefsCompGaoJie} from './../gaojie'
+import {TestGaoJie,TestMineGaoJie, ExtendsComGaoJie, TestRefsCompGaoJie, TestFButton} from './../gaojie'
+import MouseReacker from './../renderprop'
+import TestRenderProp from './../renderprop/comp'
 class MyRoute extends React.Component{
   constructor (props) {
     super(props)
@@ -116,6 +118,12 @@ class MyRoute extends React.Component{
               <li>
                 <Link to="/gaojie">高阶组件</Link>
               </li>
+              <li>
+                <Link to='/renderprop'>renderprop</Link>
+              </li>
+              <li>
+                <Link to='/renderprop1'>TestRenderProp</Link>
+              </li>
             </ul>
             <div>
               <Route path="/todo" component={Todo}></Route>
@@ -165,9 +173,12 @@ class MyRoute extends React.Component{
                   <TestGaoJie/>,
                   <TestMineGaoJie/>,
                   {/* <ExtendsComGaoJie/>, */}
-                  <TestRefsCompGaoJie/>
+                  <TestRefsCompGaoJie/>,
+                  <TestFButton/>
                 </div>
               )}/>
+              <Route path='/renderprop' component={MouseReacker}/>
+              <Route path='/renderprop1' component={TestRenderProp}/>
             </div>
           </div>
         </Router>

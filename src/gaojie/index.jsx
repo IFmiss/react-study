@@ -3,6 +3,8 @@ import WithHeader from './test'
 import setHeader from './ele'
 import ExtendsCom from './extends'
 import RefsComp from './refs'
+import LogProps from './refs1'
+
 // @withHeader
 class TG extends React.Component{
   render() {
@@ -52,14 +54,39 @@ class ETG extends React.Component{
   }
 }
 
+class FButton extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: "daiwei",
+      age: 25
+    }
+  }
+  changeAge = () => {
+    this.setState({
+      age: Math.floor(Math.random() * 80)
+    })
+  }
+  render() {
+    return(
+      <div name="daiwei" age={this.state.age}>
+        <button onClick={this.changeAge}>点击{this.state.age}</button>
+      </div>
+    )
+  }
+}
+
 // export default TestGaoJie
 const TestGaoJie = WithHeader (TG)
 const TestMineGaoJie = setHeader ('hello world')(MTG)
 // const ExtendsComGaoJie = ExtendsCom ('daiwei')(ETG)
 const TestRefsCompGaoJie = RefsComp (ETG)
+
+const TestFButton = LogProps (FButton)
 export {
   TestGaoJie,
   TestMineGaoJie,
   // ExtendsComGaoJie,
-  TestRefsCompGaoJie
+  TestRefsCompGaoJie,
+  TestFButton
 }
