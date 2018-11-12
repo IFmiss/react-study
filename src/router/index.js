@@ -22,6 +22,8 @@ import ErrorBoundary from './../boundaries'
 import {TestGaoJie,TestMineGaoJie, ExtendsComGaoJie, TestRefsCompGaoJie, TestFButton} from './../gaojie'
 import MouseReacker from './../renderprop'
 import TestRenderProp from './../renderprop/comp'
+import Trans from './../transition'
+import TransSider from './../transition/sider'
 class MyRoute extends React.Component{
   constructor (props) {
     super(props)
@@ -124,6 +126,12 @@ class MyRoute extends React.Component{
               <li>
                 <Link to='/renderprop1'>TestRenderProp</Link>
               </li>
+              <li>
+                <Link to='/trans'>trans</Link>
+              </li>
+              <li>
+                <Link to='/transSider'>transSider</Link>
+              </li>
             </ul>
             <div>
               <Route path="/todo" component={Todo}></Route>
@@ -179,6 +187,10 @@ class MyRoute extends React.Component{
               )}/>
               <Route path='/renderprop' component={MouseReacker}/>
               <Route path='/renderprop1' component={TestRenderProp}/>
+              <Route path='/trans' component={Trans}/>
+              <Route path='/transSider' render={() => (
+                <TransSider imageSrc="https://goss.veer.com/creative/vcg/veer/800water/veer-142468260.jpg"/>
+              )}/>
             </div>
           </div>
         </Router>
