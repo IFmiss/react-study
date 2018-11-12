@@ -12,6 +12,8 @@ import TestIm from './immutable'
 // // import todoApp from './redux/reducers'
 // // import App from './redux/components/App'
 import MyRoute from './router/index'
+import './list'
+import './redux'
 window.Im = Im
 render(
   <MyRoute/>,

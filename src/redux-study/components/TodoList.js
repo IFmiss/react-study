@@ -17,7 +17,7 @@ class TodoList extends React.Component{
   }
 }
 
-TodoList.PropTypes = {
+TodoList.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

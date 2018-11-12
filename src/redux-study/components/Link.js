@@ -19,7 +19,7 @@ class Link extends React.Component{
   }
 }
 
-Link.PropTypes = {
+Link.propTypes = {
   active: PropTypes.bool.isRequired,
   children: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
