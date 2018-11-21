@@ -34,7 +34,7 @@ export function fetchPosts (subreddit) {
   return function (dispatch) {
     dispatch(requestPosts(subreddit))
 
-    return fetch(`http://www.subreddit.com/r/${subreddit}.json`)
+    return fetch(`http://www.reddit.com/r/${subreddit}.json`)
       .then(
         res => res.json(),
         err => console.log('An error occurred', err)
