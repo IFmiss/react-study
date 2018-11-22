@@ -1,17 +1,29 @@
-import thunkMiddleware from 'redux-thunk'
-import { createLogger } from 'redux-logger'
+import Image from './Image'
+import React from 'react'
+import {render} from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
-import { selectSubreddit, fetchPosts } from './action'
-import rootReducer from './reduce'
+import reducer from './reduce'
+import rootSaga from './sagas'
+import createSagaMiddleware from 'redux-saga'
 
-const loggerMiddleware = createLogger()
+const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
-  rootReducer,
-  applyMiddleware(
-    thunkMiddleware,
-    loggerMiddleware
-  )
+  reducer,
+  applyMiddleware(sagaMiddleware)
 )
+sagaMiddleware.run(rootSaga)
 
-store.dispatch(selectSubreddit('reactjs'))
-store.dispatch(fetchPosts('reactjs')).then(() => console.log(store.getState()))
+function renderDom () {
+  render(
+    <Image value={store.getState()} getImageData={() => {
+      store.dispatch({
+        type: 'FETCH_REQUEST',
+        url: 'http://www.daiwei.org/vue/server/home.php?inAjax=1&do=getImageByBingJson'
+      })
+    }}/>,
+    document.getElementById('async')
+  )
+}
+
+renderDom()
+store.subscribe(renderDom)

@@ -1,59 +1,30 @@
 import { combineReducers } from 'redux'
-function selectedsubreddit (state = 'reactjs', action) {
+function fetchData (state = {
+  isFetch: false,
+  data: {},
+  error: ''
+}, action) {
   switch (action.type) {
-    case 'SELECT_SUBREDDIT':
-      return action.subreddit
-    default:
-      return state
-  }
-}
-
-function posts (
-  state = {
-    isFetching: false,
-    didInvalidate: false,
-    items: []
-  },
-  action
-) {
-  switch (action.type) {
-    case 'INVALIDATE_SUBREDDIT':
+    case 'FETCH_POSTS':
       return Object.assign({}, state, {
-        didInvalidate: true
+        isFetch: true
       })
-    case 'REQUEST_POSTS':
+    case 'FETCH_ERROR':
       return Object.assign({}, state, {
-        isFetching: true,
-        didInvalidate: false
+        isFetch: false,
+        error: action.error
       })
-    case 'RECEIVE_POSTS':
+    case 'FETCH_SUCCESS':
       return Object.assign({}, state, {
-        isFetching: false,
-        didInvalidate: false,
-        items: action.posts,
-        lastUpdated: action.receivedAt
+        isFetch: false,
+        data: action.data
       })
     default:
       return state
   }
 }
 
-function postsBySubreddit (state = {}, action) {
-  alert(action.type)
-  switch (action.type) {
-    case 'INVALIDATE_SUBREDDIT':
-    case 'RECEIVE_POSTS':
-    case 'REQUEST_POSTS':
-      return Object.assign({}, state, {
-        [action.subreddit]: posts(state[action.subreddit], action)
-      })
-    default:
-      return state
-  }
-}
-
-const rootReducer = combineReducers({
-  selectedsubreddit,
-  postsBySubreddit
+const rootReduce = combineReducers({
+  fetchData
 })
-export default rootReducer
+export default rootReduce

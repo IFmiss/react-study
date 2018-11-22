@@ -1,46 +1,22 @@
 import fetch from 'cross-fetch'
-export function selectSubreddit (subreddit) {
+// 请求地址
+export function fetchBingInfo (url) {
   return {
-    type: 'SELECT_SUBREDDIT',
-    subreddit
+    type: 'FETCH_POSTS',
+    url
   }
 }
 
-export function invalidatesubreddit (subreddit) {
+export function fetchError (error) {
   return {
-    type: 'INVALIDATE_SUBREDDIT',
-    subreddit
+    type: 'FETCH_ERROR',
+    error
   }
 }
 
-export function requestPosts(subreddit) {
+export function fetchSuccess (data) {
   return {
-    type: 'REQUEST_POSTS',
-    subreddit
-  }
-}
-
-export function receivePosts(subreddit, json) {
-  return {
-    type: 'RECEIVE_POSTS',
-    subreddit,
-    posts: json.data.children.map(child => child.data),
-    receivedAt: Date.now()
-  }
-}
-
-export function fetchPosts (subreddit) {
-  console.log('subreddit ------- ', subreddit)
-  return function (dispatch) {
-    dispatch(requestPosts(subreddit))
-
-    return fetch(`http://www.reddit.com/r/${subreddit}.json`)
-      .then(
-        res => res.json(),
-        err => console.log('An error occurred', err)
-      )
-      .then(
-        json => dispatch(receivePosts(subreddit, json))
-      )
+    type: 'FETCH_SUCCESS',
+    data
   }
 }

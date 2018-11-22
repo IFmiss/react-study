@@ -15,6 +15,7 @@ import './async-action/index'
 import MyRoute from './router/index'
 import './list'
 import './redux'
+import './async-action/index'
 window.Im = Im
 render(
   <MyRoute/>,
